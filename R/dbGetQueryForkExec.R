@@ -6,11 +6,11 @@
 #' @param password The database user's password
 #' @param server.address The network address (DNS or IP) of the database server
 #' @param domain The Windows domain for the specified users
-#' @param statement The SQL statement to be issued in a dbSendUpdate(...) call
+#' @param statement The SQL statement to be issued in a dbGetQuery(...) call
 #' @keywords sql
 #' @export
 
-dbSendUpdateForkExec <- function (
+dbGetQueryForkExec <- function (
 	database, 
 	user,
 	password,
@@ -30,7 +30,7 @@ dbSendUpdateForkExec <- function (
 	
 	param.list = list()
 	param.list[[1]] = params
-	p=mcparallel(doDbSendUpdate(params))
+	p=mcparallel(doDbGetQuery(params))
 	z = mccollect(p)
-	return()
+	return(z)
 }

@@ -2,7 +2,7 @@
 #'
 #' @keywords sql
 
-doDbSendUpdate <- function (params) {
+doDbGetQuery <- function (params) {
 
 	require(SqlServerJtds)
 	
@@ -13,6 +13,6 @@ doDbSendUpdate <- function (params) {
 		server.address=params$server.address, 
 		domain=params$domain)
 	
-	dbSendUpdate(cn, params$statement)
-	return()
+	x = dbGetQuery(cn, params$statement)
+	return(x)
 }

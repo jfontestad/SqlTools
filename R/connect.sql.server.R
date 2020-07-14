@@ -33,7 +33,7 @@ connect.sql.server <- function (database, user, password, server.address, domain
             server = server.address, 
             port = port, 
             database = database, 
-            uid = paste(sep="", domain, "\\", username), 
+            uid = paste(sep="", domain, "\\", user), 
             pwd = password, 
             TDS_Version = "8.0")
     }

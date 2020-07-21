@@ -1,9 +1,12 @@
 Package: SqlTools
-Title: Provides convenience functions for interacting with a RDBMS (specifically intended for use with SQL Server over RJDBC, but some of the code may be portable)
+Title: Provides convenience functions for interacting with a RDBMS.
 Version: 0.0.0.9000
 Authors@R: person("Nathan", "Palmer", , "nathan.palmer@gmail.com", role = c("aut", "cre"))
-Description: Provides convenience functions for interacting with a RDBMS (specifically intended for use with SQL Server over RJDBC, but some of the code may be portable)
+Description: Provides convenience functions for interacting with a RDBMS.
 Depends: R (>= 3.1.1)
 License: What license is it under?
 LazyData: true
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.1
+Imports: 
+    parallel,
+    DBI

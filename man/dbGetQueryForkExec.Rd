@@ -2,26 +2,22 @@
 % Please edit documentation in R/dbGetQueryForkExec.R
 \name{dbGetQueryForkExec}
 \alias{dbGetQueryForkExec}
-\title{A function that uses the parallel package to execute a SQL statement in a separate process,
-thereby avoiding creating a JVM in the current process.}
+\title{A function that uses the parallel package to execute a SQL statement in a separate process.}
 \usage{
-dbGetQueryForkExec(database, user, password, server.address, domain, statement)
+dbGetQueryForkExec(dbConnectionFun, dbConnectionArgs, statement,
+  async = FALSE)
 }
 \arguments{
-\item{database}{The name of the database to connect to}
+\item{dbConnectionFun}{The function to be called to instantiate a database connection}
 
-\item{user}{The name of the user for the database}
+\item{dbConnectionArgs}{The values of the parameters (in a named list) to be passed to dbConnectionFun to instantiate a connection}
 
-\item{password}{The database user's password}
+\item{statement}{The SQL statement to be executed}
 
-\item{server.address}{The network address (DNS or IP) of the database server}
-
-\item{domain}{The Windows domain for the specified users}
-
-\item{statement}{The SQL statement to be issued in a dbGetQuery(...) call}
+\item{async}{If FALSE, then the function blocks and waits for the subprocess to complete, and returns the result of the query.  If TRUE, 
+the function asyncronously returns an object of the class parallelJob that can be used to collect the results via parallel::mccollect}
 }
 \description{
-A function that uses the parallel package to execute a SQL statement in a separate process,
-thereby avoiding creating a JVM in the current process.
+A function that uses the parallel package to execute a SQL statement in a separate process.
 }
 \keyword{sql}
